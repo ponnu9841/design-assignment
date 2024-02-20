@@ -14,5 +14,28 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+
+  theme: {
+    extend: {
+      colors: {
+        primary: "#19a046",
+        secondary: "#b91919"
+
+        
+      },
+    },
+  },
+
+  daisyui: {
+    themes: [
+      {
+        dark: {
+          ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#19a046",
+          secondary: "#b91919"
+        },
+      }
+    ],
+  },
 }
