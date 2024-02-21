@@ -1,11 +1,10 @@
 import { combineReducers, Reducer, Action } from "redux";
-import { windowSizeData, getProfileData } from "./reducer/reducer";
+import { getCartData } from "./reducer/reducer";
 
 type RootState = ReturnType<typeof appReducer>;
 
 const appReducer = combineReducers({
-	windowSizeData,
-	getProfileData,
+	getCartData
 });
 
 const rootReducer: Reducer<RootState, Action > = (state, action) => {

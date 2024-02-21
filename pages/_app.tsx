@@ -18,7 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
 	return (
 		<Provider store={store}>
 		  <main className={`${font.className} dark min-h-screen`}>
-        	<Component {...pageProps} />)
+        	<Component {...pageProps} />
 		  </main>
 		</Provider>
 	);

@@ -1,23 +1,14 @@
-import { PROFILE_DATA, WINDOW_SIZE } from "../const";
+import { ADD_TO_CART, REMOVE_CART } from "../const";
+import { DishType } from "@/components/dishListComponent/dish.type";
 
-interface Action {
-    type: string;
-    data?: any; // You can define a more specific type for data if needed
-  }
-// WINDOW SIZE
-export const windowSizeData = (data = null, action: Action) => {
-	switch (action.type) {
-		case WINDOW_SIZE:
-			return action.data.windowSize;
-		default:
-			return data;
-	}
-};
 
-export const getProfileData = (data = null, action: Action) => {
+// CART
+export const getCartData = (data: DishType[] = [], action: any) => {
 	switch (action.type) {
-		case PROFILE_DATA:
-			return action.data.profileData;
+		case ADD_TO_CART:
+			return [...data, action?.data];
+		case REMOVE_CART:
+			return data?.filter(e => e?.dish_id !== action.data.dish_id);
 		default:
 			return data;
 	}

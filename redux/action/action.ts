@@ -1,22 +1,15 @@
-import { WINDOW_SIZE, PROFILE_DATA, USER_LOGOUT } from "../const";
+import { ADD_TO_CART, REMOVE_CART } from "../const";
 
-export const getWindowSize = (data: any) => {
+export const addToCart = (data: any) => {
 	return {
-		type: WINDOW_SIZE,
+		type: ADD_TO_CART,
 		data,
 	};
 };
 
-export const profieDetails = (data: any) => {
+export const removeCart = (data: any) => {
 	return {
-		type: PROFILE_DATA,
-		data,
-	};
-};
-
-export const logOut = (data: any) => {
-	return {
-		type: USER_LOGOUT,
+		type: REMOVE_CART,
 		data,
 	};
 };

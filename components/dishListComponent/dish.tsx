@@ -3,7 +3,8 @@ import { FaPlus, FaMinus } from "react-icons/fa6";
 import NextImage from "../NextImage/image";
 import SquareDot from "./squreDot";
 import { DishType } from "./dish.type";
-import { FaRegCircleStop } from "react-icons/fa6";
+import { addToCart, removeCart } from "@/redux/action/action";
+import { useDispatch, useSelector } from "react-redux";
 
 interface PropType {
 	dishData: DishType;
@@ -15,16 +16,32 @@ export default function DishItem(props: PropType) {
 
 	const [qty, setQty] = React.useState(0);
 
+	const cartData = useSelector((state: any) => state?.getCartData);
+	const dispatch = useDispatch()
+
 	React.useEffect(() => {
 		setQty(0);
 	}, [dishData]);
 
-	function setQuantity(type: string) {
+	function setQuantity(type: string,) {
 		if (type == "add") {
+			// call redux if needed
+			if(!cartData){
+				dispatch(addToCart(dishData))
+			}else{
+				const cartAdded = cartData?.some((item: DishType) => item?.dish_id === dishData?.dish_id);
+				if(!cartAdded){
+					dispatch(addToCart(dishData))
+				}
+			}
+
 			setQty(qty + 1);
 		} else if (type == "sub") {
 			if (qty > 0) {
 				setQty(qty - 1);
+				if(qty == 1){
+					dispatch(removeCart(dishData))
+				}
 			}
 		}
 	}

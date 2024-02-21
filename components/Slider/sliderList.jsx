@@ -9,39 +9,20 @@ export default function SliderList(props) {
 
 	const settings = {
 		dots: true,
-		dotsClass: "slick-dots slick-thumb",
 		infinite: false,
-		speed: 500,
-		slidesToShow: 5,
-		slidesToScroll: 1,
+		slidesToShow: 4,
 		arrows: false,
 		variableWidth: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 576,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
+		responsive: [
+			{
+				breakpoint: 576,
+				settings: {
+					slidesToShow: 1,
+				},
+			},
+		],
 	};
 
-	// console.log(currentDishList)
 	return (
 		<>
 			<div className="slider-container">
@@ -72,16 +53,16 @@ export default function SliderList(props) {
 			</div>
 
 			<div className="mt-3">
-			  {currentDishList?.category_dishes?.map((item, index) => (
-  				<React.Fragment key={index}>
-  					<div>
-  						<DishItem dishData={item} index={index} />
-  					</div>
-  					{index !== currentDishList?.category_dishes?.length - 1 && (
-  						<div className="divider my-0"></div>
-  					)}
-  				</React.Fragment>
-  			))}
+				{currentDishList?.category_dishes?.map((item, index) => (
+					<div className="animate-[fadeIn_1s_ease-in-out]" key={index}>
+						<div>
+							<DishItem dishData={item} index={index} />
+						</div>
+						{index !== currentDishList?.category_dishes?.length - 1 && (
+							<div className="divider my-0 "></div>
+						)}
+					</div>
+				))}
 			</div>
 		</>
 	);

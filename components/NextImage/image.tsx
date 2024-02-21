@@ -19,8 +19,7 @@ export default function NextImage(props: ImageProps) {
         fill={true}
         className={"object-contain w-full relative "+className}
         alt={alt || ""}
-        // sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
-        sizes="99.99999999vw"
+        sizes="99.99vw"
         priority={priority || true}
         style={style}
       />
