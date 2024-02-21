@@ -36,9 +36,9 @@ export default function SliderList(props) {
 							<div key={index} className="w-fit">
 								<h1>
 									<button
-										className={`py-2 px-3 btn btn-ghost border-t-0 border-s-0 border-e-0 font-medium ${
+										className={`py-2 px-3 btn btn-ghost border-t-0 border-l-0 border-r-0 font-semibold ${
 											isActive
-												? "text-secondary border-b-1 font-semibold border-secondary hover:border-b-1 hover:border-secondary"
+												? "text-secondary border-b-1 border-secondary hover:border-b-1 hover:border-secondary"
 												: ""
 										}`}
 										onClick={() => setCurrentDishList(item)}
